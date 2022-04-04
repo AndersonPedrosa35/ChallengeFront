@@ -1,8 +1,12 @@
-# Getting Started with Create React App
+# Bem vindo ao Repositório ChallengeLaunchCodeFront
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sumário
+//
 
-## Available Scripts
+## Iniciar o projeto
+//
+
+## Scripts Disponíveis
 
 In the project directory, you can run:
 
