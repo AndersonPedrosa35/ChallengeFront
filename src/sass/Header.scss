@@ -1,0 +1,47 @@
+@import './_variables.scss';
+
+.header {
+  background-color: var(--secondary);
+  
+  .header-containerLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    max-width: var(--max-width);
+    height: var(--header-height);
+    border-bottom: 1px solid var(--secondary);
+    position: relative;
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: var(--logo-width);
+      border-radius: var(--border-radius);
+      position: relative;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+
+      &:hover {
+        background-color: var(--fifth);
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
