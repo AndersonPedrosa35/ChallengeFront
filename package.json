@@ -21,17 +21,15 @@
     "websocket-extensions": ">=0.1.4"
   },
   "scripts": {
-    "scss": "node-sass --watch ./src/sass -o ./src/style ",
+    "build:css": "node-sass ./src/sass --output ./src/css",
+    "start:css": "yarn build:css && yarn build:css -w",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
