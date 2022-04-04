@@ -7,13 +7,19 @@ export default function Header() {
     <header className="header">
       <section className="header-containerLinks">
         <nav className="header-logo">
+          <button
+            type='button'
+            onClick={() => {}}
+          >
+            <img src="" alt="" />
+          </button>
           <Link to="/">
-            <img src="../../assets/Logo.png" alt="logo" />
+            <img src="../assets/Logo.png" alt="logo" />
           </Link>
         </nav>
         <nav className="header-right">
           <Link to="/myaccount">
-            <img src="../../assets/user.png" alt="user" />
+            <img src="../assets/user.png" alt="user" />
           </Link>
         </nav>
       </section>

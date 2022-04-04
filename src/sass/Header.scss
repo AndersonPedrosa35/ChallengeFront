@@ -12,16 +12,13 @@
     max-width: var(--max-width);
     height: var(--header-height);
     border-bottom: 1px solid var(--secondary);
-    position: relative;
 
     .header-logo {
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100%;
-      width: var(--logo-width);
       border-radius: var(--border-radius);
-      position: relative;
     }
 
     .header-right {
