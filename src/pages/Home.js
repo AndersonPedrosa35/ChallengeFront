@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <section>
+      <section className='dashboard'>
         { isOpen && (
           <div className='column-left'>
             <section className='container-Sidebar'>

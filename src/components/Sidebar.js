@@ -23,62 +23,61 @@ import IconTeam from '../assets/icons/IconTeam.svg';
 export default function SideBar() {
   return (
     <>
-      <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
+      <Nav className="sidebar"
         activeKey="/home"
         // onSelect={selectedKey => alert(`selected ${selectedKey}`)}
       >
-        <div className="sidebar-sticky"></div>
       <Nav.Item>
         <Nav.Link href="/home">
-          <img src={ homeIcon } alt="Home" width={'20px'} />
+          <img src={ homeIcon } alt="Home" width={'50px'} />
           <h3>Home</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Quotes">
-          <img src={ IconMoney } alt="Quotes" width={'20px'} />
+          <img src={ IconMoney } alt="Quotes" width={'50px'} />
           <h3>Quotes</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Leads">
-          <img src={ IconLeads } alt="Leads" width={'20px'} />
+          <img src={ IconLeads } alt="Leads" width={'50px'} />
           <h3>Leads</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Tours">
-          <img src={ IconPlane } alt="Tours" width={'20px'} />
+          <img src={ IconPlane } alt="Tours" width={'50px'} />
           <h3>Tours</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Invoices">
-          <img src={ IconDoc } alt="Invoices" width={'20px'} />
+          <img src={ IconDoc } alt="Invoices" width={'50px'} />
           <h3>Invoices</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Analytics">
-          <img src={ IconChart2 } alt="Analytics" width={'20px'} />
+          <img src={ IconChart2 } alt="Analytics" width={'50px'} />
           <h3>Analytics</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Team">
-          <img src={ IconTeam } alt="Team" width={'20px'} />
+          <img src={ IconTeam } alt="Team" width={'50px'} />
           <h3>Team</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Admin">
-          <img src={ IconConfig } alt="Admin" width={'20px'} />
+          <img src={ IconConfig } alt="Admin" width={'50px'} />
           <h3>Admin</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Support">
-          <img src={ IconSupport } alt="Support" width={'20px'} />
+          <img src={ IconSupport } alt="Support" width={'50px'} />
           <h3>Support</h3>
         </Nav.Link>
       </Nav.Item>
