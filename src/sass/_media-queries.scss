@@ -15,3 +15,10 @@
     @content;
   }
 }
+
+@mixin container-main {
+  max-width: 1376px;
+  @media screen and (min-width: 1370px){
+    margin: 20px auto;
+  }
+}
