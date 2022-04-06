@@ -1,64 +1,85 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
-import { homeIcon,
-  IconChart2, IconConfig, IconDoc, IconLeads, 
-  IconMail, IconMoney, IconPlane, IconSupport, 
-  IconTeam } from '../assets/icons/menuIcons.js';
+import IconChart2 from '../assets/icons/IconChart2.svg';
+import homeIcon from '../assets/icons/homeIcon.svg';
+import IconDoc from '../assets/icons/IconDoc.svg';
+import IconLeads from '../assets/icons/IconLeads.svg';
+import IconMoney from '../assets/icons/IconMoney.svg';
+import IconPlane from '../assets/icons/IconPlane.svg';
+import IconConfig from '../assets/icons/IconConfig.svg';
+// import IconMail from '../assets/icons/IconMail.svg';
+import IconSupport from '../assets/icons/IconSupport.svg';
+// import IconArrow from '../assets/icons/IconArrow.svg';
+// import IconChart from '../assets/icons/IconChart.svg';
+// import IconFullScreen from '../assets/icons/IconFullScreen.svg';
+// import IconHandshake from '../assets/icons/IconHandshake.svg';
+// import IconHistory from '../assets/icons/IconHistory.svg';
+// import IconChat from '../assets/icons/IconChat.svg';
+// import IconReload from '../assets/icons/IconReload.svg';
+import IconTeam from '../assets/icons/IconTeam.svg';
+// import IconSearch from '../assets/icons/IconSearch.svg';
+
 
 export default function SideBar() {
   return (
     <>
       <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
         activeKey="/home"
-        onSelect={selectedKey => alert(`selected ${selectedKey}`)}
+        // onSelect={selectedKey => alert(`selected ${selectedKey}`)}
       >
         <div className="sidebar-sticky"></div>
       <Nav.Item>
         <Nav.Link href="/home">
-          <img src={ homeIcon } alt="Home" />
+          <img src={ homeIcon } alt="Home" width={'20px'} />
           <h3>Home</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Quotes">
-          <img src={ IconMoney } alt="Quotes" />
+          <img src={ IconMoney } alt="Quotes" width={'20px'} />
           <h3>Quotes</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Leads">
-          <img src={ IconLeads } alt="Leads" />
+          <img src={ IconLeads } alt="Leads" width={'20px'} />
           <h3>Leads</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Tours">
-          <img src={ IconPlane } alt="Tours" />
-          <h3>Leads</h3>
+          <img src={ IconPlane } alt="Tours" width={'20px'} />
+          <h3>Tours</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Invoices">
-          <img src={ IconDoc } alt="Invoices" />
-          <h3>Leads</h3>
+          <img src={ IconDoc } alt="Invoices" width={'20px'} />
+          <h3>Invoices</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Analytics">
-          <img src={ IconChart2 } alt="Analytics" />
-          <h3>Leads</h3>
+          <img src={ IconChart2 } alt="Analytics" width={'20px'} />
+          <h3>Analytics</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="Team">
-          <img src={ IconLeads } alt="Teams" />
-          <h3>Leads</h3>
+          <img src={ IconTeam } alt="Team" width={'20px'} />
+          <h3>Team</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="link-2">
-          <img src={ IconLeads } alt="Leads" />
-          <h3>Leads</h3>
+        <Nav.Link eventKey="Admin">
+          <img src={ IconConfig } alt="Admin" width={'20px'} />
+          <h3>Admin</h3>
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="Support">
+          <img src={ IconSupport } alt="Support" width={'20px'} />
+          <h3>Support</h3>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
