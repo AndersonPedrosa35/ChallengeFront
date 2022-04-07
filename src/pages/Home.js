@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import CreateQuotes from '../components/CreateQuotes';
 import Header from '../components/Header';
 import Revenue from '../components/Revenue';
 import SideBar from '../components/Sidebar';
@@ -67,9 +68,7 @@ export default function Home() {
           </section>
           <section className="section-quotes">
             <div className="container-quotes">
-              <section>
-
-              </section>
+              <CreateQuotes />
               <section className="container-pendingQuotes">
                 <h1>Pending Quotes</h1>
                 <table>

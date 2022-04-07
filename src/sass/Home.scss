@@ -125,10 +125,25 @@
 
 .column-right {
   @include container-main;
+  .container-quotes {
+    display: flex;
+    @include mobile {
+      flex-direction: column;
+    }
+    .container-pendingQuotes {
+      border-radius: var(--border-radius);
+      border: 1px solid var(--primary-text);
+      padding: 20px;
+    }
 
-  .container-pendingQuotes {
-    border-radius: var(--border-radius);
-    border: 1px solid var(--primary-text);
-    padding: 20px;
+    .container-createQuotes {
+      border-radius: var(--border-radius);
+      border: 1px solid var(--primary-text);
+      padding: 20px;
+      .form-createQuotes {
+        display: flex;
+        flex-flow: row wrap;
+      }
+    }
   }
 }
