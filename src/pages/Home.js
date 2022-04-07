@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import CreateQuotes from '../components/CreateQuotes';
 import Header from '../components/Header';
+import ListLeads from '../components/ListLeads';
+import PendingQuotes from '../components/PendingQuotes';
 import Revenue from '../components/Revenue';
 import SideBar from '../components/Sidebar';
 import { Context } from '../context/context';
@@ -8,25 +10,6 @@ import '../css/Home.css';
 
 export default function Home() {
   const { isOpen } = useContext(Context);
-  
-  function renderPendingQuotes() {
-    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-      <tr>
-        <td>
-          teste
-        </td>
-        <td>
-          teste
-        </td>
-        <td>
-          teste
-        </td>
-        <td>
-          teste
-        </td>
-      </tr>
-    ));
-  }
 
   return (
     <div>
@@ -69,21 +52,8 @@ export default function Home() {
           <section className="section-quotes">
             <div className="container-quotes">
               <CreateQuotes />
-              <section className="container-pendingQuotes">
-                <h1>Pending Quotes</h1>
-                <table>
-                  <tr>
-                    <th width={'120px'}>Id</th>
-                    <th width={'120px'}>Name</th>
-                    <th width={'120px'}>Destenation</th>
-                    <th width={'120px'}>Price</th>
-                  </tr>
-                  {renderPendingQuotes()}
-                </table>
-              </section>
-              <section>
-
-              </section>
+              <PendingQuotes />
+              <ListLeads />
             </div>
           </section>
           <section>
