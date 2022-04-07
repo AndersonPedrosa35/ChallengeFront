@@ -7,6 +7,26 @@ import '../css/Home.css';
 
 export default function Home() {
   const { isOpen } = useContext(Context);
+  
+  function renderPendingQuotes() {
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+      <tr>
+        <td>
+          teste
+        </td>
+        <td>
+          teste
+        </td>
+        <td>
+          teste
+        </td>
+        <td>
+          teste
+        </td>
+      </tr>
+    ));
+  }
+
   return (
     <div>
       <Header />
@@ -47,7 +67,24 @@ export default function Home() {
           </section>
           <section className="section-quotes">
             <div className="container-quotes">
-              
+              <section>
+
+              </section>
+              <section className="container-pendingQuotes">
+                <h1>Pending Quotes</h1>
+                <table>
+                  <tr>
+                    <th width={'120px'}>Id</th>
+                    <th width={'120px'}>Name</th>
+                    <th width={'120px'}>Destenation</th>
+                    <th width={'120px'}>Price</th>
+                  </tr>
+                  {renderPendingQuotes()}
+                </table>
+              </section>
+              <section>
+
+              </section>
             </div>
           </section>
           <section>

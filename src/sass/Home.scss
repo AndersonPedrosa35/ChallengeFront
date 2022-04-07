@@ -125,4 +125,10 @@
 
 .column-right {
   @include container-main;
+
+  .container-pendingQuotes {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-text);
+    padding: 20px;
+  }
 }
