@@ -11,7 +11,8 @@ import '../css/Home.css';
 
 export default function Home() {
   const { isOpen } = useContext(Context);
-
+  const { REACT_APP_MAPBOX_TOKEN } = process.env;
+  console.log(REACT_APP_MAPBOX_TOKEN);
   return (
     <div>
       <Header />
@@ -43,9 +44,9 @@ export default function Home() {
               <section className="info-firstBanner">
               <img src={require('../assets/Background.png')} alt=""/>
               <div>
-                <p><h2>101</h2><span>NEW LEADS</span></p>
-                <p><h2>35</h2><span>QUOTES CREATED</span></p>
-                <p><h2>40</h2><span>PENDING ORDERS</span></p>
+                <section><h2>101</h2><span>NEW LEADS</span></section>
+                <section><h2>35</h2><span>QUOTES CREATED</span></section>
+                <section><h2>40</h2><span>PENDING ORDERS</span></section>
               </div>
               </section>
             </div>
@@ -59,7 +60,7 @@ export default function Home() {
           </section>
           <section>
             <Revenue />
-            <PopularDestinations />
+            <PopularDestinations accessToken={ REACT_APP_MAPBOX_TOKEN } zoom={ 1 } />
           </section>
         </div>
       </section>
