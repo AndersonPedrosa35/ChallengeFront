@@ -3,8 +3,8 @@ import React from 'react'
 export default function PendingQuotes() {
   
   function renderPendingQuotes() {
-    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-      <tr>
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
+      <tr key={ index }>
         <td>
           teste
         </td>

@@ -3,6 +3,7 @@ import CreateQuotes from '../components/CreateQuotes';
 import Header from '../components/Header';
 import ListLeads from '../components/ListLeads';
 import PendingQuotes from '../components/PendingQuotes';
+import PopularDestinations from '../components/PopularDestinations';
 import Revenue from '../components/Revenue';
 import SideBar from '../components/Sidebar';
 import { Context } from '../context/context';
@@ -58,6 +59,7 @@ export default function Home() {
           </section>
           <section>
             <Revenue />
+            <PopularDestinations />
           </section>
         </div>
       </section>
