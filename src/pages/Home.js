@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Chat from '../components/Chat';
 import CreateQuotes from '../components/CreateQuotes';
 import Header from '../components/Header';
 import ListLeads from '../components/ListLeads';
@@ -59,8 +60,11 @@ export default function Home() {
             </div>
           </section>
           <section className="container-maps">
-            <Revenue />
             <PopularDestinations accessToken={ REACT_APP_MAPBOX_TOKEN } zoom={ -0.00001 } />
+            <Chat />
+          </section>
+          <section>
+          <Revenue />
           </section>
         </div>
       </section>

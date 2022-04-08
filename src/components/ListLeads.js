@@ -1,4 +1,5 @@
 import React from 'react';
+import IconLeads from '../assets/icons/IconLeads.svg';
 
 export default function ListLeads() {
   function renderLeads() {
@@ -12,9 +13,11 @@ export default function ListLeads() {
   }
   return (
     <section className='container-listLeads'>
-      <div>
+      <div className="listLeads-title">
+        <img src={ IconLeads } alt="New Leads" width={'40px'} />
         <h4>New Leads</h4>
       </div>
+      <hr></hr>
       { renderLeads() }
     </section>
   )

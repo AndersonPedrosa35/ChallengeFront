@@ -1,9 +1,14 @@
 import React from 'react';
+import IconArrow from '../assets/icons/IconArrow.svg';
 
 export default function CreateQuotes() {
   return (
     <section className="container-createQuotes">
-      <h4>Quick Quotes</h4>
+      <div className="createQuotes-title">
+        <img src={IconArrow} alt="doubleArrow" width={'50px'}/>
+        <h4>Quick Quotes</h4>
+      </div>
+      <hr></hr>
       <form className="form-createQuotes">
         <label htmlFor='from'>
           From

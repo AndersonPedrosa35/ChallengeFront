@@ -43,6 +43,7 @@ export default function PopularDestinations({zoom, accessToken}) {
   return (
     <section>
       <div><h3>Popular destinations & packages</h3></div>
+      <hr></hr>
       <div className="container-map">
         <div className="info-map">
           <div className="info-map-item">

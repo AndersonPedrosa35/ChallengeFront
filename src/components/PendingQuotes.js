@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import IconHistory from '../assets/icons/IconHistory.svg';
 
 export default function PendingQuotes() {
   
@@ -23,7 +24,11 @@ export default function PendingQuotes() {
 
   return (
     <section className="container-pendingQuotes">
-      <div><h4>Pending Quotes</h4></div>
+      <div className="pendingQuotes-title">
+        <img src={ IconHistory } alt="Pending Quotes" width={'50px'}/>
+        <h4>Pending Quotes</h4>
+      </div>
+      <hr></hr>
       <table>
         <tr>
           <th width={'120px'}>Id</th>
