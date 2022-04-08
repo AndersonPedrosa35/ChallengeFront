@@ -89,10 +89,12 @@
 
 .dashboard {
   display: flex;
+  background-color: var(--lightgrey-lighter);
 }
 .column-left {
   background-color: var(--lightgrey-light);
   max-width: 205px;
+  max-height: 110vh;
   @include mobile {
     width: 100%;
   }
@@ -124,7 +126,6 @@
 }
 
 .column-right {
-  background-color: var(--lightgrey-lighter);
   @include container-main;
   .container-quotes {
     display: flex;
@@ -140,6 +141,9 @@
       padding: 20px;
       margin-right: 20px;
       width: 350px;
+      @include mobile {
+        margin: 30px 0;
+      }
       .pendingQuotes-title {
         display: flex;
         h4 {
@@ -209,7 +213,7 @@
       .listLeads-title {
         align-items: center;
         h4 {
-          margin: 10px 0 0 10px;
+          margin: 10px 0 10px 10px;
         }
       }
       div {
@@ -229,20 +233,51 @@
   }
 
   .container-maps {
-    .buttonMapTrackMe {
-      width: 500px;
-      height: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    @include mobile {
+      flex-direction: column;
     }
-    .container-map {
+    .buttonMapTrackMe {
+      width: 420px;
+      height: 250px;
+      border: none;
+      border-radius: var(--border-radius);
+      .mapboxgl-control-container {
+        .mapboxgl-ctrl-attrib-button {
+          display: none;
+        }
+        .mapboxgl-ctrl-attrib-inner {
+          margin-top: -20px;
+        }
+      }
+    }
+    .section-map {
       background-color: var(--white);
-      display: flex;
-      justify-content: space-between;
-      width: 800px;
-      .info-map {
+      width: 720px;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      border: none;
+      @include mobile {
+        margin-bottom: 30px;
+      }
+      .map-title {
         display: flex;
-        flex-direction: column;
-        .info-map-item {
+        align-items: center;
+        h4 {
+          margin: 2px 0 0 10px;
+        }
+      }
+      .container-map {
+        display: flex;
+        justify-content: space-between;
+        .info-map {
           display: flex;
+          flex-direction: column;
+          .info-map-item {
+            display: flex;
+          }
         }
       }
     }
@@ -252,6 +287,16 @@
       flex-direction: column;
       background-color: var(--white);
       width: 300px;
+      border-radius: var(--border-radius);
+      padding: 20px;
+      .chat-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: -8px;
+        h4 {
+          margin-left: 10px;
+        }
+      }
       .container-chat-item {
         display: flex;
         line-height: 1px;

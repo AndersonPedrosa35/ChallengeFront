@@ -8,9 +8,10 @@ export default function GenerateGrafics(props) {
     vAxis: { title: "Weight", viewWindow: { min: 0, max: 15 } },
     legend: "none"
   };
-  const { data, type } = props;
+  const { data, type, className } = props;
   return (
     <Chart
+      className={ className }
       chartType={ type }
       data={ data() }
       options={ options }

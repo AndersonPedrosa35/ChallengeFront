@@ -1,5 +1,6 @@
-import mapboxGl from 'mapbox-gl';
 import React, { useEffect, useState, useRef } from 'react';
+import mapboxGl from 'mapbox-gl';
+import IconPlane from '../assets/icons/IconPlane.svg';;
 
 export default function PopularDestinations({zoom, accessToken}) {
   const mapContainer = useRef(null);
@@ -41,8 +42,11 @@ export default function PopularDestinations({zoom, accessToken}) {
   }
 
   return (
-    <section>
-      <div><h3>Popular destinations & packages</h3></div>
+    <section className="section-map">
+      <div className="map-title">
+        <img src={ IconPlane } alt="Popular destinations" width={'40px'}/>
+        <h4>Popular destinations & packages</h4>
+      </div>
       <hr></hr>
       <div className="container-map">
         <div className="info-map">

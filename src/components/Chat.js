@@ -5,7 +5,10 @@ import IconChat2 from '../assets/icons/IconChat2.svg';
 export default function Chat() {
   return (
     <section className="container-chat">
-      <div><img src={IconChat} alt="Chat" width={"50px"}/><h3>Team chat</h3></div>
+      <div className="chat-title">
+        <img src={IconChat} alt="Chat" width={"50px"}/>
+        <h4>Team chat</h4>
+      </div>
       <hr></hr>
       <div className="container-chat-item">
         <img src="" alt="" />

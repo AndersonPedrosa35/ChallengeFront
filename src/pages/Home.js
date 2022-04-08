@@ -13,7 +13,6 @@ import '../css/Home.css';
 export default function Home() {
   const { isOpen } = useContext(Context);
   const { REACT_APP_MAPBOX_TOKEN } = process.env;
-  console.log(REACT_APP_MAPBOX_TOKEN);
   return (
     <div>
       <Header />
@@ -63,8 +62,8 @@ export default function Home() {
             <PopularDestinations accessToken={ REACT_APP_MAPBOX_TOKEN } zoom={ -0.00001 } />
             <Chat />
           </section>
-          <section>
-          <Revenue />
+          <section className="container-grafics">
+            <Revenue />
           </section>
         </div>
       </section>
