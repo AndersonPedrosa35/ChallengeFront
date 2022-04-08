@@ -3,7 +3,7 @@ import React from 'react';
 export default function CreateQuotes() {
   return (
     <section className="container-createQuotes">
-      <h1>Quick Quotes</h1>
+      <h4>Quick Quotes</h4>
       <form className="form-createQuotes">
         <label htmlFor='from'>
           From

@@ -58,9 +58,9 @@ export default function Home() {
               <ListLeads />
             </div>
           </section>
-          <section>
+          <section className="container-maps">
             <Revenue />
-            <PopularDestinations accessToken={ REACT_APP_MAPBOX_TOKEN } zoom={ 1 } />
+            <PopularDestinations accessToken={ REACT_APP_MAPBOX_TOKEN } zoom={ -0.00001 } />
           </section>
         </div>
       </section>

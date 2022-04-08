@@ -23,12 +23,12 @@ export default function PendingQuotes() {
 
   return (
     <section className="container-pendingQuotes">
-      <div><h1>Pending Quotes</h1></div>
+      <div><h4>Pending Quotes</h4></div>
       <table>
         <tr>
           <th width={'120px'}>Id</th>
           <th width={'120px'}>Name</th>
-          <th width={'120px'}>Destenation</th>
+          <th width={'120px'}>Destination</th>
           <th width={'120px'}>Price</th>
         </tr>
         {renderPendingQuotes()}

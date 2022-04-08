@@ -5,15 +5,15 @@ export default function ListLeads() {
     return [1, 2, 3].map((item, index) => (
       <div key={ index }>
         <img src="" alt=""/>
-        <span><strong>Jane Smith</strong> Hey! I want to place my package</span>
+        <div><strong>Jane Smith</strong><span>Hey! I want to place my package</span></div>
         <span>13:40 PM</span>
       </div>
     ));
   }
   return (
-    <section>
+    <section className='container-listLeads'>
       <div>
-        <h3>New Leads</h3>
+        <h4>New Leads</h4>
       </div>
       { renderLeads() }
     </section>
