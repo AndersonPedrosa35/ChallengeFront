@@ -9,7 +9,7 @@ export default function CreateQuotes() {
         <h4>Quick Quotes</h4>
       </div>
       <hr></hr>
-      <form className="form-createQuotes">
+      <form data-testid="form" className="form-createQuotes">
         <label htmlFor='from'>
           From
           <input type="text" />
