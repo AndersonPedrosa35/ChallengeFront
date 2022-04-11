@@ -3,12 +3,12 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Provider from './context/context';
 import Home from './pages/Home';
 
-function App() {
+function App({ testing }) {
   return (
     <BrowserRouter>
       <Route path="/" render={ () =>
         <Provider>
-            <Home />
+            <Home testing={ testing } />
         </Provider>
       } />
     </BrowserRouter>

@@ -5,12 +5,13 @@ import Header from '../components/Header';
 import ListLeads from '../components/ListLeads';
 import PendingQuotes from '../components/PendingQuotes';
 import PopularDestinations from '../components/PopularDestinations';
+import PotentialRevenue from '../components/PotentialRevenue';
 import Revenue from '../components/Revenue';
 import SideBar from '../components/Sidebar';
 import { Context } from '../context/context';
 import '../css/Home.css';
 
-export default function Home() {
+export default function Home({ testing }) {
   const { isOpen } = useContext(Context);
   const { REACT_APP_MAPBOX_TOKEN } = process.env;
   return (
@@ -42,7 +43,7 @@ export default function Home() {
                 </p>
               </section>
               <section className="info-firstBanner">
-              <img src={require('../assets/Background.png')} alt=""/>
+              <img src={require('../assets/Background.png')} alt="hero-background"/>
               <div>
                 <section><h2>101</h2><span>NEW LEADS</span></section>
                 <section><h2>35</h2><span>QUOTES CREATED</span></section>
@@ -59,12 +60,16 @@ export default function Home() {
             </div>
           </section>
           <section className="container-maps">
-            <PopularDestinations accessToken={ REACT_APP_MAPBOX_TOKEN } zoom={ -0.00001 } />
+            { !testing && 
+              <PopularDestinations accessToken={ REACT_APP_MAPBOX_TOKEN } zoom={ -0.00001 } /> }
             <Chat />
           </section>
+          { !testing && (
           <section className="container-grafics">
-            <Revenue />
+             <Revenue /> 
+            <PotentialRevenue />
           </section>
+          )}
         </div>
       </section>
       
