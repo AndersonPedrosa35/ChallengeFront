@@ -64,6 +64,9 @@ export default function CreateQuotes() {
             <option>1</option>
             <option>2</option>
             <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
           </select>
         </label>
         <label
@@ -78,6 +81,9 @@ export default function CreateQuotes() {
             <option>1</option>
             <option>2</option>
             <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
           </select>
         </label>
         <label
@@ -92,6 +98,7 @@ export default function CreateQuotes() {
             <option>1</option>
             <option>2</option>
             <option>3</option>
+            <option>4</option>
           </select>
         </label>
         <label
@@ -123,6 +130,10 @@ export default function CreateQuotes() {
         <button
           type='submit'
           className="btn-submit"
+          disabled={ 
+            !quote.from || !quote.destination || !quote.departDate 
+            || !quote.returnDate || !quote.people || !quote.transportation 
+            || !quote.name }
         >
             Create a quote
           </button>

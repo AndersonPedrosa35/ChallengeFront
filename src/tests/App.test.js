@@ -1,3 +1,4 @@
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import App from '../App';
 import renderWithRoute from './renderWithRouter.js';
@@ -71,7 +72,35 @@ describe('Testing the container quotes', () => {
     expect(inputTransportation).toHaveValue('airplane');
     expect(inputName).toHaveAttribute('type', 'text');
   });
+});
 
-  it('')
-  
+describe('test the interactions with inputs into create quotes form', () => {
+  it('should starting the interactions with inputs into create quotes form', () => {
+    const { getByTestId, getByRole } = renderWithRoute(<App testing={ true } />);
+    const inputFrom = getByTestId('from').childNodes[1];
+    const inputDestination = getByTestId('destination').childNodes[1];
+    const inputDepartDate = getByTestId('departDate').childNodes[1];
+    const inputReturnDate = getByTestId('returnDate').childNodes[1];
+    const inputPeople = getByTestId('people').childNodes[1];
+    const inputTransportation = getByTestId('transportation').childNodes[1];
+    const inputName = getByTestId('name').childNodes[1];
+    const buttonSubmit = getByRole('button', { name: 'Create a quote' });
+
+    userEvent.type(inputFrom, 'Buenos Aires');
+    userEvent.type(inputDestination, 'Santiago');
+    userEvent.selectOptions(inputDepartDate, '2');
+    userEvent.selectOptions(inputReturnDate, '3');
+    userEvent.selectOptions(inputPeople, '2');
+    userEvent.selectOptions(inputTransportation, 'train');
+    userEvent.type(inputName, 'Juan');
+
+    expect(inputFrom).toHaveValue('Buenos Aires');
+    expect(inputDestination).toHaveValue('Santiago');
+    expect(inputDepartDate).toHaveValue('2');
+    expect(inputReturnDate).toHaveValue('3');
+    expect(inputPeople).toHaveValue('2');
+    expect(inputTransportation).toHaveValue('train');
+    expect(inputName).toHaveValue('Juan');
+    expect(buttonSubmit).toBeEnabled()
+  });
 })

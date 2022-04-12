@@ -41,9 +41,9 @@
       img {
         width: 280px;
       }
+    }
     @include tablet {
       width: 500px;
-    }
     }
     div {
       display: flex;
@@ -64,7 +64,7 @@
         margin-right: 20px;
         width: 150px;
         &:last-child {
-          margin: 0 0 1rem 1.5rem;
+          margin: 0;
         }
         @include mobile {
           margin: 0;
