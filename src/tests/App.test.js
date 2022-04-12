@@ -38,25 +38,40 @@ describe('Testing the container quotes', () => {
   });
 
   it('should renders the inputs into create quotes form', () => {
-    const { getByLabelText } = renderWithRoute(<App testing={ true } />);
-    // const fromQuote = getByLabelText('From');
-    // const destinationQuote = getByLabelText('Destination');
-    // const departDateQuote = getByLabelText('Depart Date');
-    // const returnDateQuote = getByLabelText('Return Date');
-    // const peopleQuote = getByLabelText('People');
-    // const transportationQuote = getByLabelText('Transportation');
-    // const nameQuote = getByLabelText('Name');
+    const { getByTestId } = renderWithRoute(<App testing={ true } />);
+    const fromQuote = getByTestId('from');
+    const destinationQuote = getByTestId('destination');
+    const departDateQuote = getByTestId('departDate');
+    const returnDateQuote = getByTestId('returnDate');
+    const peopleQuote = getByTestId('people');
+    const transportationQuote = getByTestId('transportation');
+    const nameQuote = getByTestId('name');
 
-    // expect(fromQuote).toBeInTheDocument();
-    // expect(destinationQuote).toBeInTheDocument();
-    // expect(departDateQuote).toBeInTheDocument();
-    // expect(returnDateQuote).toBeInTheDocument();
-    // expect(peopleQuote).toBeInTheDocument();
-    // expect(transportationQuote).toBeInTheDocument();
-    // expect(nameQuote).toBeInTheDocument();
-    // expect(fromQuote).toHaveAttribute('type', 'text');
-    // expect(destinationQuote).toHaveAttribute('type', 'text');
-    // expect(departDateQuote).toHaveAttribute('value', '1');
+    expect(fromQuote).toHaveTextContent('From');
+    expect(destinationQuote).toHaveTextContent('Destination');
+    expect(departDateQuote).toHaveTextContent('Depart Date');
+    expect(returnDateQuote).toHaveTextContent('Return Date');
+    expect(peopleQuote).toHaveTextContent('People');
+    expect(transportationQuote).toHaveTextContent('Transportation');
+    expect(nameQuote).toHaveTextContent('Name');
+    
+    const inputFrom = fromQuote.childNodes[1];
+    const inputDestination = destinationQuote.childNodes[1];
+    const inputDepartDate = departDateQuote.childNodes[1];
+    const inputReturnDate = returnDateQuote.childNodes[1];
+    const inputPeople = peopleQuote.childNodes[1];
+    const inputTransportation = transportationQuote.childNodes[1];
+    const inputName = nameQuote.childNodes[1];
+
+    expect(inputFrom).toHaveAttribute('type', 'text');
+    expect(inputDestination).toHaveAttribute('type', 'text');
+    expect(inputDepartDate).toHaveValue('1');
+    expect(inputReturnDate).toHaveValue('1');
+    expect(inputPeople).toHaveValue('1');
+    expect(inputTransportation).toHaveValue('airplane');
+    expect(inputName).toHaveAttribute('type', 'text');
   });
+
+  it('')
   
 })
