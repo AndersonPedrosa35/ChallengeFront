@@ -1,5 +1,5 @@
-import userEvent from '@testing-library/user-event';
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import App from '../App';
 import renderWithRoute from './renderWithRouter.js';
 
@@ -74,7 +74,7 @@ describe('Testing the container quotes', () => {
   });
 });
 
-describe('test the interactions with inputs into create quotes form', () => {
+describe('test the interactions in inputs into create quotes form', () => {
   it('test end-to-end into create quotes form', () => {
     const { getByTestId, getByRole } = renderWithRoute(<App testing={ true } />);
     const inputFrom = getByTestId('from').childNodes[1];
@@ -143,6 +143,54 @@ describe('test the interactions with inputs into create quotes form', () => {
   });
 });
 
-describe('test the interactions and renders with the Pending Quotes Table', () => {
-  
+describe('test the interactions and renders the Pending Quotes Table', () => {
+  it("should renders the Pending quotes table", () => {
+    const { getByAltText, getByRole } = renderWithRoute(<App testing={ true } />);
+    const iconPendingQuotes = getByAltText('Pending Quotes');
+    const titlePendingQuotes = getByRole('heading', { level: 4, name: "Pending Quotes" })
+    const table = getByRole('table');
+    const idColumn = table.childNodes[0].childNodes[0];
+    const nameColumn = table.childNodes[0].childNodes[1];
+    const destinationColumn = table.childNodes[0].childNodes[2];
+    const priceColumn = table.childNodes[0].childNodes[3];
+    
+    expect(iconPendingQuotes).toHaveAttribute('src', 'IconHistory.svg');
+    expect(titlePendingQuotes).toBeInTheDocument();
+    
+    expect(table).toBeInTheDocument();
+    expect(idColumn).toHaveTextContent('Id');
+    expect(nameColumn).toHaveTextContent('Name');
+    expect(destinationColumn).toHaveTextContent('Destination');
+    expect(priceColumn).toHaveTextContent('Price');
+  });
 });
+
+
+describe('test the interactions and renders the Leads List', () => {
+  it('should renders the Leads List', () => {
+    const { getByRole, getByAltText, getAllByRole } = renderWithRoute(<App testing={ true } />)
+    const titleListLeads = getByRole('heading', { level: 4, name: 'New Leads' });
+    const containerEachLead = getAllByRole('container');
+    const hourLead = getAllByRole('section')[0].childNodes[2];
+    const iconListLeads = getByAltText("New Leads");
+    const nameLead = containerEachLead[0].childNodes[0];
+    const statusLead = containerEachLead[0].childNodes[1];
+
+    expect(titleListLeads).toBeInTheDocument();
+    expect(iconListLeads).toHaveAttribute('src', "IconLeads.svg");
+    expect(nameLead).toHaveTextContent('Jane Smith');
+    expect(statusLead).toHaveTextContent('Hey! I want to place my package');
+    expect(hourLead).toHaveTextContent('13:40 PM');
+  });
+});
+
+describe('test the interactions and renders the Chat', () => {
+  it('should renders the Chat', () => {
+    const { getByRole, getByAltText } = renderWithRoute(<App testing={ true } />);
+    const titleChat = getByRole('heading', { name: "Team chat" });
+    const iconChat = getByAltText('Chat');
+    
+    expect(titleChat).toBeInTheDocument();
+    expect(iconChat).toBeInTheDocument();
+  })
+})
