@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import IconArrow from '../assets/icons/IconArrow.svg';
+import { createQuote } from '../utils/Api';
 
 export default function CreateQuotes() {
   const MAX_LENGHT_NAME_CITY_GALES = 58;
@@ -16,7 +17,10 @@ export default function CreateQuotes() {
   
   function handleSubmit(e) {
     e.preventDefault();
-    alert(`ESTADO ENVIADO ${quote}`);
+    createQuote(quote).then((res) => {
+      alert(`Quote created successfully`);
+      console.log(res)
+    });
     setQuotes({from: '', destination: '', departDate: '1', name: '',
       returnDate: '1', people: '1', transportation: 'airplane' })
   }

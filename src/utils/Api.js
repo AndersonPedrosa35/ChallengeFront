@@ -1,10 +1,13 @@
 import axios from 'axios';
+import { getStorage } from './localStorage';
 
+
+const token = getStorage('user').token;
 const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://localhost:3001',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': { 'token': '123' }
+    Authorization: token
   }
 });
 
@@ -18,4 +21,8 @@ export async function getEmployees() {
 
 export async function getQuotes() {
   return api.get('/quotes').then((response) => response.data).catch((err) => console.error(err));
+}
+
+export async function createQuote(body) {
+  return api.post('/quotes', body).then((response) => response.data).catch((err) => console.error(err));
 }

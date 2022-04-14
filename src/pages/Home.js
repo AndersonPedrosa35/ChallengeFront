@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Chat from '../components/Chat';
 import CreateQuotes from '../components/CreateQuotes';
 import Header from '../components/Header';
@@ -10,11 +10,15 @@ import Revenue from '../components/Revenue';
 import SideBar from '../components/Sidebar';
 import { Context } from '../context/context';
 import '../css/Home.css';
+import { createStorage } from '../utils/localStorage';
 
 export default function Home({ testing }) {
   const { isOpen } = useContext(Context);
   const { REACT_APP_MAPBOX_TOKEN } = process.env;
 
+  useEffect(() => {
+    createStorage('user', { name: 'John Doe', email: 'teste.teste@gmail.com', token: '1234567' })
+  });
   return (
     <div>
       <Header />
