@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import IconArrow from '../assets/icons/IconArrow.svg';
 
 export default function CreateQuotes() {
+  const MAX_LENGHT_NAME_CITY_GALES = 58;
+  const MAX_LENGHT_NAME = 15;
   const [quote, setQuotes] = useState({
     from: '',
     destination: '',
@@ -39,6 +41,7 @@ export default function CreateQuotes() {
             type="text"
             value={ quote.from }
             onChange={ ({ target }) => setQuotes({ ...quote, from: target.value }) }
+            maxLength={ MAX_LENGHT_NAME_CITY_GALES }
           />
         </label>
         <label
@@ -50,6 +53,7 @@ export default function CreateQuotes() {
             type="text"
             value={ quote.destination }
             onChange={ ({ target }) => setQuotes({ ...quote, destination: target.value }) }
+            maxLength={ MAX_LENGHT_NAME_CITY_GALES }
           />
         </label>
         <label
@@ -125,6 +129,7 @@ export default function CreateQuotes() {
             type="text"
             value={ quote.name }
             onChange={ ({ target }) => setQuotes({ ...quote, name: target.value }) }
+            maxLength={ MAX_LENGHT_NAME }
           />
         </label>
         <button

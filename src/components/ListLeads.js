@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import IconLeads from '../assets/icons/IconLeads.svg';
+import { getLeads } from '../utils/Api';
 
 export default function ListLeads() {
   let section = 'section';
   let container = 'container';
+  const [isLoading, setIsLoading] = useState(true);
+  const [leads, setLeads] = useState([]);
+
+  useEffect(() => {
+    getLeads().then((response) => {
+      setLeads(response);
+      setIsLoading(false);
+    });
+  }, []);
+
   function renderLeads() {
-    return [1, 2, 3].map((item, index) => (
+    console.log(leads);
+    return leads.map(({ name, message, self, hours }, index) => (
       <div key={ index } role={section} aria-label='containerInfoLead' className='container-eachLead'>
-        <img className="img-lead" src="https://img.ibxk.com.br/2019/02/17/17124052466014.jpg?ims=328x" alt="Lead" />
-        <div role={container}><strong>Jane Smith</strong><span>Hey! I want to place my package</span></div>
-        <span className='hours'>13:40 PM</span>
+        <img className="img-lead" src={ self } alt="Lead" />
+        <div role={container}><strong>{ name }</strong><span>{ message }</span></div>
+        <span className='hours'>{ hours }</span>
       </div>
     ));
   }
@@ -20,7 +32,7 @@ export default function ListLeads() {
         <h4>New Leads</h4>
       </div>
       <hr></hr>
-      { renderLeads() }
+      { !isLoading && renderLeads() }
     </section>
   )
 }

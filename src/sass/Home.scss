@@ -247,14 +247,16 @@
         justify-content: space-between;
         margin-bottom: 1rem;
         strong {
-          font-size: 1rem;
+          font-size: 0.95rem;
           font-weight: 500;
+          margin-bottom: 7px;
           color: var(--secondary);
         }
         div {
           display: flex;
           flex-direction: column;
           max-width: 120px;
+          line-height: 12px;
           font-size: 0.7rem;
           font-weight: 300;
           color: var(--darkgrey-medium);
@@ -345,11 +347,12 @@
         margin-bottom: 1rem;
         justify-content: space-between;
         div {
-          max-width: 130px;
+          max-width: 140px;
           h5 {
             margin-bottom: 0;
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            letter-spacing: -0.5px;
             color: var(--secondary);
           }
           span {

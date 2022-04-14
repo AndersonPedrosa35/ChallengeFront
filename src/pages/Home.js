@@ -14,6 +14,7 @@ import '../css/Home.css';
 export default function Home({ testing }) {
   const { isOpen } = useContext(Context);
   const { REACT_APP_MAPBOX_TOKEN } = process.env;
+
   return (
     <div>
       <Header />

@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import IconHistory from '../assets/icons/IconHistory.svg';
+import { getQuotes } from '../utils/Api';
 
 export default function PendingQuotes() {
-  
+  const [isLoading, setIsLoading] = useState(true);
+  const [quotes, setQuotes] = useState([]);
+
+  useEffect(() => {
+    getQuotes().then((response) => {
+      setQuotes(response);
+      setIsLoading(false);
+    });
+  })
+
   function renderPendingQuotes() {
-    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
+    return quotes.map(({ id, name, destination, price }, index) => (
       <tr key={ index }>
         <td>
-          teste
+          { id }
         </td>
         <td>
-          teste
+          { name }
         </td>
         <td>
-          teste
+          { destination }
         </td>
         <td>
-          teste
+          { price }
         </td>
       </tr>
     ));
@@ -36,7 +46,7 @@ export default function PendingQuotes() {
           <th width={'140px'}>Destina..</th>
           <th width={'100px'}>Price</th>
         </tr>
-        {renderPendingQuotes()}
+        { !isLoading && renderPendingQuotes()}
       </table>
     </section>
   )

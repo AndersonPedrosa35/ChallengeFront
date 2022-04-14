@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import IconChat from '../assets/icons/IconChat.svg';
 import IconChat2 from '../assets/icons/IconChat2.svg';
+import { getEmployees } from '../utils/Api';
 
 export default function Chat() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    getEmployees().then((response) => {
+      setEmployees(response);
+      setIsLoading(false);
+    });
+  })
 
   function renderLeadInChat() {
-    let array = [1, 2, 3, 4];
-    return array.map((item) => (
+    return employees.map(({ name, job, self, status }) => (
       <div className="container-chat-item">
-        <img className="img-lead" src="https://img.ibxk.com.br/2019/02/17/17124052466014.jpg?ims=328x" alt="Lead" />
+        <img className="img-lead" src={ self } alt="Employee" />
         <div className="chat-item-name">
-          <h5>Jane Smith</h5>
-          <span>Customer service available</span>
+          <h5>{ name }</h5>
+          <span>{ job }<br></br>{ status }</span>
         </div>
         <img src={IconChat2} alt="chat" />
       </div>
@@ -24,7 +33,7 @@ export default function Chat() {
         <h4>Team chat</h4>
       </div>
       <hr></hr>
-      { renderLeadInChat() }
+      { !isLoading && renderLeadInChat() }
     </section>
   )
 }
