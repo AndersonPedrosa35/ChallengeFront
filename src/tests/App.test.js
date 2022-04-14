@@ -160,7 +160,7 @@ describe('test the interactions and renders the Pending Quotes Table', () => {
     expect(table).toBeInTheDocument();
     expect(idColumn).toHaveTextContent('Id');
     expect(nameColumn).toHaveTextContent('Name');
-    expect(destinationColumn).toHaveTextContent('Destination');
+    expect(destinationColumn).toHaveTextContent('Destina..');
     expect(priceColumn).toHaveTextContent('Price');
   });
 });
@@ -189,7 +189,7 @@ describe('test the interactions and renders the Chat', () => {
     const { getByRole, getByAltText } = renderWithRoute(<App testing={ true } />);
     const titleChat = getByRole('heading', { name: "Team chat" });
     const iconChat = getByAltText('Chat');
-    
+
     expect(titleChat).toBeInTheDocument();
     expect(iconChat).toBeInTheDocument();
   })

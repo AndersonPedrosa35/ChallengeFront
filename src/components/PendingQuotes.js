@@ -32,9 +32,9 @@ export default function PendingQuotes() {
       <table>
         <tr>
           <th width={'120px'}>Id</th>
-          <th width={'120px'}>Name</th>
-          <th width={'120px'}>Destination</th>
-          <th width={'120px'}>Price</th>
+          <th width={'130px'}>Name</th>
+          <th width={'140px'}>Destina..</th>
+          <th width={'100px'}>Price</th>
         </tr>
         {renderPendingQuotes()}
       </table>

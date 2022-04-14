@@ -8,9 +8,9 @@ export default function Chat() {
     let array = [1, 2, 3, 4];
     return array.map((item) => (
       <div className="container-chat-item">
-        <img src="" alt="" />
+        <img className="img-lead" src="https://img.ibxk.com.br/2019/02/17/17124052466014.jpg?ims=328x" alt="Lead" />
         <div className="chat-item-name">
-          <h5>Juh Abdecam</h5>
+          <h5>Jane Smith</h5>
           <span>Customer service available</span>
         </div>
         <img src={IconChat2} alt="chat" />

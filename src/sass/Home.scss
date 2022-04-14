@@ -2,7 +2,7 @@
 @import './_media-queries.scss';
 
 .container-firstBanner {
-  margin: 30px 30px 0;
+  margin: 30px 20px 0;
   display: flex;
   justify-content: space-between;
   background-color: var(--primary);
@@ -90,6 +90,12 @@
 .dashboard {
   display: flex;
   background-color: var(--lightgrey-lighter);
+
+  .img-lead {
+    height: 60px;
+    border-radius: 22px;
+    margin-right: 10px;
+  }
 }
 .column-left {
   background-color: var(--lightgrey-light);
@@ -104,7 +110,8 @@
     padding-top: 1.5rem;
     .nav-item {
       &:hover {
-        background-color: var(--fifth);
+        padding-top: 10px;
+        box-shadow: 0 0 11px rgba(33,33,33,.2); 
       }
       &:active {
         background-color: var(--primary);
@@ -116,9 +123,9 @@
       margin-bottom: 1rem;
       img {
         width: 30px;
-        margin-right: 20px;
+        margin-right: 10px;
       }
-      h3 {
+      h5 {
         margin-bottom: 0;
       }
     }
@@ -130,7 +137,7 @@
   .container-quotes {
     display: flex;
     justify-content: space-between;
-    margin: 30px;
+    margin: 20px;
     @include mobile {
       flex-direction: column;
     }
@@ -148,6 +155,15 @@
         display: flex;
         h4 {
           margin: 10px 0 0 10px;
+          color: var(--secondary);
+        }
+      }
+      table tr {
+        th {
+          font-weight: 500;
+        }
+        td {
+          font-size: 0.8rem;
         }
       }
     }
@@ -163,25 +179,33 @@
         display: flex;
         align-items: center;
         h4 {
-          margin-top: 10px
+          margin-top: 10px;
+          color: var(--secondary);
         }
       }
       .form-createQuotes {
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-evenly;
-        max-width: 340px;
+        justify-content: space-between;
+        max-width: 380px;
         button {
           height: 60px;
-          width: 140px;
+          width: 150px;
           border: none;
-          border-radius: var(--border-radius);
+          border-radius: 100px;
+          background-color: var(--secondary);
+          color: var(--white);
+          &:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+          }
         }
         label {
           display: flex;
           background-color: var(--lightgrey-lighter);
           flex-direction: column;
-          width: 130px;
+          color: var(--secondary);
+          width: 147px;
           height: 55px;
           margin-bottom: 1rem;
           padding: 5px 0 5px 10px;
@@ -211,22 +235,34 @@
       padding: 20px;
       width: 300px;
       .listLeads-title {
+        display: flex;
         align-items: center;
         h4 {
           margin: 10px 0 10px 10px;
+          color: var(--secondary);
         }
       }
-      div {
+      .container-eachLead {
         display: flex;
+        justify-content: space-between;
         margin-bottom: 1rem;
         strong {
-          font-size: 1.3rem;
+          font-size: 1rem;
+          font-weight: 500;
+          color: var(--secondary);
         }
         div {
           display: flex;
           flex-direction: column;
+          max-width: 120px;
           font-size: 0.7rem;
           font-weight: 300;
+          color: var(--darkgrey-medium);
+        }
+        .hours {
+          font-size: 0.8rem;
+          opacity: 0.8;
+          letter-spacing: -0.5px;
         }
       }
     }
@@ -235,7 +271,7 @@
   .container-maps {
     display: flex;
     justify-content: space-between;
-    margin: 30px;
+    margin: 20px;
     @include mobile {
       flex-direction: column;
     }
@@ -266,6 +302,7 @@
         align-items: center;
         h4 {
           margin: 2px 0 0 10px;
+          color: var(--secondary);
         }
       }
       .container-map {
@@ -280,6 +317,7 @@
           flex-direction: column;
           .info-map-item {
             display: flex;
+            color: var(--primary)
           }
         }
       }
@@ -298,14 +336,27 @@
         margin-bottom: -8px;
         h4 {
           margin-left: 10px;
+          color: var(--secondary);
         }
       }
       .container-chat-item {
         display: flex;
-        line-height: 1px;
+        line-height: 12px;
         margin-bottom: 1rem;
-        span {
-          font-size: 0.8rem;
+        justify-content: space-between;
+        div {
+          max-width: 130px;
+          h5 {
+            margin-bottom: 0;
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--secondary);
+          }
+          span {
+            font-size: 0.7rem;
+            color: var(--darkgrey-medium);
+          }
+
         }
       }
     }
@@ -314,7 +365,7 @@
   .container-grafics {
     display: flex;
     justify-content: space-between;
-    margin: 30px;
+    margin: 20px;
     @include mobile {
       flex-direction: column;
     }
@@ -336,6 +387,7 @@
 
         h4 {
           margin: 5px 0 0 10px;
+          color: var(--secondary);
         }
       }
       #reactgooglegraph-1 {
@@ -361,6 +413,7 @@
         align-items: center;
         h4 {
           margin: 5px 0 0 10px;
+          color: var(--secondary);
         }
       }
       .container-grafic-item {
