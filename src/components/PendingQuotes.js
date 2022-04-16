@@ -11,13 +11,17 @@ export default function PendingQuotes() {
       setQuotes(response);
       setIsLoading(false);
     });
-  })
+  }, []);
+
+  function formatMoney(price) {
+    return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
 
   function renderPendingQuotes() {
-    return quotes.map(({ id, name, destination, price }, index) => (
+    return quotes.map(({ name, destination, price }, index) => (
       <tr key={ index }>
         <td>
-          { id }
+          { `00${index + 1}` }
         </td>
         <td>
           { name }
@@ -26,7 +30,7 @@ export default function PendingQuotes() {
           { destination }
         </td>
         <td>
-          { price }
+          { formatMoney(price) }
         </td>
       </tr>
     ));

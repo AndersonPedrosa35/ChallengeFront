@@ -94,7 +94,6 @@
   .img-lead {
     height: 60px;
     border-radius: 22px;
-    margin-right: 10px;
   }
 }
 .column-left {
@@ -348,6 +347,7 @@
         justify-content: space-between;
         div {
           max-width: 140px;
+          margin-left: -10px;
           h5 {
             margin-bottom: 0;
             font-weight: 500;

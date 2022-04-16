@@ -8,22 +8,27 @@ export default function CreateQuotes() {
   const [quote, setQuotes] = useState({
     from: '',
     destination: '',
-    departDate: '1',
+    departDate: convertDate(new Date()),
     name: '',
-    returnDate: '1',
+    returnDate: '',
     people: '1',
     transportation: 'airplane'
   });
-  
-  function handleSubmit(e) {
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    createQuote(quote).then((res) => {
-      alert(`Quote created successfully`);
-      console.log(res)
-    });
+    await createQuote(quote).then((res) => {});
     setQuotes({from: '', destination: '', departDate: '1', name: '',
       returnDate: '1', people: '1', transportation: 'airplane' })
   }
+
+  function convertDate(date) {
+    const data = new Date(date);
+    const month = data.getMonth().toString().length === 1 ? `0${data.getMonth() + 1}` : data.getMonth() + 1;
+    const dateArray = `${data.getFullYear()}-${month}-${data.getDate()}`;
+    return dateArray;
+  }
+
   return (
     <section className="container-createQuotes">
       <div className="createQuotes-title">
@@ -65,34 +70,25 @@ export default function CreateQuotes() {
           data-testid="departDate"
         >
           Depart Date
-          <select    
-            value={ quote.departDate }
-            onChange={ ({ target }) => setQuotes({ ...quote, departDate: target.value }) }
-          >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-          </select>
+          <input
+            type="date"
+            value={ quote.departDate } 
+            onChange={({ target }) => setQuotes({ ...quote, departDate: target.value })}
+            min={ convertDate(Date.now()) }
+            max={ convertDate(new Date(2023, 11, 31)) }
+          />
         </label>
         <label
           htmlFor='returnDate'
           data-testid="returnDate"
         >
           Return Date
-          <select
+          <input
+            type="date"
             value={ quote.returnDate }
-            onChange={ ({ target }) => setQuotes({ ...quote, returnDate: target.value }) }
-          >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-          </select>
+            onChange={({ target }) => setQuotes({ ...quote, returnDate: target.value })}
+            min={ quote.departDate }
+          />
         </label>
         <label
           htmlFor='people'
