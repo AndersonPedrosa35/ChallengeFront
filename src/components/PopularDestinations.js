@@ -35,12 +35,6 @@ export default function PopularDestinations({zoom, accessToken}) {
     }, option)
   }
 
-  function handleFlyToPosition() {
-    map.flyTo({
-      center: position
-    })
-  }
-
   return (
     <section className="section-map">
       <div className="map-title">
