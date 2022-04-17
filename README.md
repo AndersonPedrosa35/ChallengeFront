@@ -1,74 +1,46 @@
 # Bem vindo ao Repositório ChallengeLaunchCodeFront
 
 ## Sumário
-//
+- [Ferramentas](#ferramentas)
+- [O que foi desenvolvido](#o-que-foi-desenvolvido)
+- [Scripts](#scripts)
+- [Para iniciar o projeto](#para-iniciar-o-projeto)
+- [Como utilizar](#como-utilizar)
 
-## Iniciar o projeto
-//
 
-## Scripts Disponíveis
+## Ferramentas
+  - React
+  - React Router Dom
+  - Context API
+  - React Testing Library
+  - Jest
 
-In the project directory, you can run:
+## O que foi desenvolvido 
+ Criada uma aplicação de viagens, o objetivo era poder criar passagens, verificar Clientes e Colegas de trabalho, foi criada uma página de craição de viagens, uma tabela com uma lista de pedidos feitos, uma lista de cliente, uma lista de colegas de trabalho, um mapa mostrando os locais e alguns graficos de venda.
+ 
+## Scripts
+No projeto você pode:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Roda a aplicação em um ambiente de desenvolvimento
+Abri a porta [http://localhost:3000](http://localhost:3000) para ver no browser.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Roda os testes utilizado na aplicação como objetivo de entregar um código de qualidade
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Faz uma construção para produção da aplicação
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run build:css ou npm run start:css`
+Faz uma construção do css para a aplicação, ele gera os arquivos em css apartir do sass.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
+### Para iniciar o projeto
+ Clone este repositório com `git clone git@github.com:AndersonPedrosa35/ChallengeFront.git` e entre no diretório com `cd ChallengeFront` e execute o script `npm run start` para iniciar a aplicação em ambiente de desenvolvimento na porta 3000.
+ Haverá alguns erros pois não há variaveis de ambiente, vá para para o arquivo `.env.example`, copie e cole num arquivo `.env`, a partir daí busque por uma chave publica no https://www.mapbox.com/, fazendo login e importando a chave.
+ 
 ### Deployment
+  Deploy = https://launchcode-frontend.vercel.app/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
