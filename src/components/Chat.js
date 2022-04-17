@@ -16,8 +16,8 @@ export default function Chat() {
   }, []);
 
   function renderLeadInChat() {
-    return employees.map(({ name, job, self, status }) => (
-      <div className="container-chat-item">
+    return employees.map(({ name, job, self, status }, index) => (
+      <div className="container-chat-item" key={ index }>
         <img className="img-lead" src={ self } alt="Employee" />
         <div className="chat-item-name">
           <h5>{ name }</h5>

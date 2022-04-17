@@ -4,7 +4,7 @@ import IconPlane from '../assets/icons/IconPlane.svg';;
 
 export default function PopularDestinations({zoom, accessToken}) {
   const mapContainer = useRef(null);
-  const [map, setMap] = useState(null);
+  const map = useRef(null);
   const [position, setPosition] = useState([0, 30]);
   
   useEffect(() => {
@@ -14,13 +14,13 @@ export default function PopularDestinations({zoom, accessToken}) {
 
   function handleMap(posit, zoom, key) {
     mapboxGl.accessToken = key;
-    const getMap = new mapboxGl.Map({
+    if (map.current) return;
+    map.current = new mapboxGl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/andersonpedrosa35/cl1qsnh74000216tk5j0k3msy',
       center: posit,
       zoom
     });
-    setMap(getMap)
   }
 
   function handlePosition() {
