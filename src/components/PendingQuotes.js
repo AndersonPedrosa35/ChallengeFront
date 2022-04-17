@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import IconHistory from '../assets/icons/IconHistory.svg';
+import { Context } from '../context/context';
 import { getQuotes } from '../utils/Api';
 
 export default function PendingQuotes() {
   const [isLoading, setIsLoading] = useState(true);
-  const [quotes, setQuotes] = useState([]);
+  const { quotes, setQuotes } = useContext(Context);
 
   useEffect(() => {
     getQuotes().then((response) => {
@@ -14,7 +15,8 @@ export default function PendingQuotes() {
   }, []);
 
   function formatMoney(price) {
-    return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    const priceNumber = parseFloat(price);
+    return priceNumber.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
 
   function renderPendingQuotes() {

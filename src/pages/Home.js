@@ -9,16 +9,16 @@ import PotentialRevenue from '../components/PotentialRevenue';
 import Revenue from '../components/Revenue';
 import SideBar from '../components/Sidebar';
 import { Context } from '../context/context';
-import '../css/Home.css';
 import { createStorage } from '../utils/localStorage';
+import '../css/Home.css';
 
 export default function Home({ testing }) {
-  const { isOpen } = useContext(Context);
+  const { isOpen, leads, quotes } = useContext(Context);
   const { REACT_APP_MAPBOX_TOKEN } = process.env;
 
   useEffect(() => {
     createStorage('user', { name: 'John Doe', email: 'teste.teste@gmail.com', token: '1234567' })
-  });
+  }, []);
   return (
     <div>
       <Header />
@@ -50,9 +50,9 @@ export default function Home({ testing }) {
               <section className="info-firstBanner">
               <img src={require('../assets/Background.png')} alt="hero-background"/>
               <div>
-                <section><h2>101</h2><span>NEW LEADS</span></section>
-                <section><h2>35</h2><span>QUOTES CREATED</span></section>
-                <section><h2>40</h2><span>PENDING ORDERS</span></section>
+                <section><h2>{ leads.length }</h2><span>NEW LEADS</span></section>
+                <section><h2>{ quotes.length }</h2><span>QUOTES CREATED</span></section>
+                <section><h2>{ quotes.length }</h2><span>PENDING ORDERS</span></section>
               </div>
               </section>
             </div>

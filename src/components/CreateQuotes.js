@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import IconArrow from '../assets/icons/IconArrow.svg';
+import { Context } from '../context/context';
 import { createQuote } from '../utils/Api';
+
+export function convertDate(date) {
+  const data = new Date(date);
+  const month = data.getMonth().toString().length === 1 ? `0${data.getMonth() + 1}` : data.getMonth() + 1;
+  const dateArray = `${data.getFullYear()}-${month}-${data.getDate()}`;
+  return dateArray;
+}
 
 export default function CreateQuotes() {
   const MAX_LENGHT_NAME_CITY_GALES = 58;
   const MAX_LENGHT_NAME = 15;
-  const [quote, setQuotes] = useState({
+  const { quotes, setQuotes } = useContext(Context);
+  const [quote, setQuote] = useState({
     from: '',
     destination: '',
     departDate: convertDate(new Date()),
@@ -17,16 +26,12 @@ export default function CreateQuotes() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await createQuote(quote).then((res) => {});
-    setQuotes({from: '', destination: '', departDate: '1', name: '',
-      returnDate: '1', people: '1', transportation: 'airplane' })
-  }
-
-  function convertDate(date) {
-    const data = new Date(date);
-    const month = data.getMonth().toString().length === 1 ? `0${data.getMonth() + 1}` : data.getMonth() + 1;
-    const dateArray = `${data.getFullYear()}-${month}-${data.getDate()}`;
-    return dateArray;
+    const newQuote = await createQuote(quote);
+    setQuote({from: '', destination: '', departDate: '1', name: '',
+      returnDate: '1', people: '1', transportation: 'airplane' });
+    if (newQuote[0].price === '2000,00') {
+      setQuotes([...quotes, newQuote[0]]); 
+    }
   }
 
   return (
@@ -49,7 +54,7 @@ export default function CreateQuotes() {
           <input
             type="text"
             value={ quote.from }
-            onChange={ ({ target }) => setQuotes({ ...quote, from: target.value }) }
+            onChange={ ({ target }) => setQuote({ ...quote, from: target.value }) }
             maxLength={ MAX_LENGHT_NAME_CITY_GALES }
           />
         </label>
@@ -61,7 +66,7 @@ export default function CreateQuotes() {
           <input
             type="text"
             value={ quote.destination }
-            onChange={ ({ target }) => setQuotes({ ...quote, destination: target.value }) }
+            onChange={ ({ target }) => setQuote({ ...quote, destination: target.value }) }
             maxLength={ MAX_LENGHT_NAME_CITY_GALES }
           />
         </label>
@@ -73,7 +78,7 @@ export default function CreateQuotes() {
           <input
             type="date"
             value={ quote.departDate } 
-            onChange={({ target }) => setQuotes({ ...quote, departDate: target.value })}
+            onChange={({ target }) => setQuote({ ...quote, departDate: target.value })}
             min={ convertDate(Date.now()) }
             max={ convertDate(new Date(2023, 11, 31)) }
           />
@@ -86,7 +91,7 @@ export default function CreateQuotes() {
           <input
             type="date"
             value={ quote.returnDate }
-            onChange={({ target }) => setQuotes({ ...quote, returnDate: target.value })}
+            onChange={({ target }) => setQuote({ ...quote, returnDate: target.value })}
             min={ quote.departDate }
           />
         </label>
@@ -97,7 +102,7 @@ export default function CreateQuotes() {
           People
           <select
             value={ quote.people }
-            onChange={ ({ target }) => setQuotes({ ...quote, people: target.value }) }
+            onChange={ ({ target }) => setQuote({ ...quote, people: target.value }) }
           >
             <option>1</option>
             <option>2</option>
@@ -112,7 +117,7 @@ export default function CreateQuotes() {
           Transportation
           <select
             value={ quote.transportation }
-            onChange={ ({ target }) => setQuotes({ ...quote, transportation: target.value }) }
+            onChange={ ({ target }) => setQuote({ ...quote, transportation: target.value }) }
           >
             <option>airplane</option>
             <option>bus</option>
@@ -128,7 +133,7 @@ export default function CreateQuotes() {
           <input
             type="text"
             value={ quote.name }
-            onChange={ ({ target }) => setQuotes({ ...quote, name: target.value }) }
+            onChange={ ({ target }) => setQuote({ ...quote, name: target.value }) }
             maxLength={ MAX_LENGHT_NAME }
           />
         </label>

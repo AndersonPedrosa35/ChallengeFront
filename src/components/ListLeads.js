@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import IconLeads from '../assets/icons/IconLeads.svg';
+import { Context } from '../context/context';
 import { getLeads } from '../utils/Api';
 
 export default function ListLeads() {
   let section = 'section';
   let container = 'container';
   const [isLoading, setIsLoading] = useState(true);
-  const [leads, setLeads] = useState([]);
+  const { leads, setLeads } = useContext(Context);
 
   useEffect(() => {
     getLeads().then((response) => {
@@ -16,7 +17,6 @@ export default function ListLeads() {
   }, []);
 
   function renderLeads() {
-    console.log(leads);
     return leads.map(({ name, message, self, hours }, index) => (
       <div key={ index } role={section} aria-label='containerInfoLead' className='container-eachLead'>
         <img className="img-lead" src={ self } alt="Lead" />

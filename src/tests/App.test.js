@@ -2,9 +2,12 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 import renderWithRoute from './renderWithRouter.js';
+import { createStorage } from '../utils/localStorage';
+import { convertDate } from '../components/CreateQuotes';
+import { fireEvent, waitFor } from '@testing-library/react';
 
 describe('Testing hero title into home', () => {
-  
+
   it('should renders the title', () => {
     const { getByRole } = renderWithRoute(<App testing={ true } />);
     const title = getByRole('heading', { level: 1 });
@@ -27,6 +30,10 @@ describe('Testing hero title into home', () => {
 })
 
 describe('Testing the container quotes', () => {
+  beforeAll(() => {
+    createStorage('user', 
+    { name: 'John Doe', email: 'teste.teste@gmail.com', token: '1234567' })
+  });
   it('should renders the title into create quotes form', () => {
     const { getAllByRole, getByTestId } = renderWithRoute(<App testing={ true } />);
     const createQuotesTitle = getAllByRole('heading', { level: 4 });
@@ -66,8 +73,8 @@ describe('Testing the container quotes', () => {
 
     expect(inputFrom).toHaveAttribute('type', 'text');
     expect(inputDestination).toHaveAttribute('type', 'text');
-    expect(inputDepartDate).toHaveValue('1');
-    expect(inputReturnDate).toHaveValue('1');
+    expect(inputDepartDate).toHaveAttribute('type', 'date');
+    expect(inputReturnDate).toHaveAttribute('type', 'date');
     expect(inputPeople).toHaveValue('1');
     expect(inputTransportation).toHaveValue('airplane');
     expect(inputName).toHaveAttribute('type', 'text');
@@ -75,6 +82,10 @@ describe('Testing the container quotes', () => {
 });
 
 describe('test the interactions in inputs into create quotes form', () => {
+  beforeAll(() => {
+    createStorage('user', 
+    { name: 'John Doe', email: 'teste.teste@gmail.com', token: '1234567' })
+  });
   it('test end-to-end into create quotes form', () => {
     const { getByTestId, getByRole } = renderWithRoute(<App testing={ true } />);
     const inputFrom = getByTestId('from').childNodes[1];
@@ -88,29 +99,30 @@ describe('test the interactions in inputs into create quotes form', () => {
 
     userEvent.type(inputFrom, 'Buenos Aires');
     userEvent.type(inputDestination, 'Santiago');
-    userEvent.selectOptions(inputDepartDate, '2');
-    userEvent.selectOptions(inputReturnDate, '3');
+    fireEvent.change(inputReturnDate, { target: { value: '2023-10-23' } });
     userEvent.selectOptions(inputPeople, '2');
     userEvent.selectOptions(inputTransportation, 'train');
     userEvent.type(inputName, 'Juan');
 
     expect(inputFrom).toHaveValue('Buenos Aires');
     expect(inputDestination).toHaveValue('Santiago');
-    expect(inputDepartDate).toHaveValue('2');
-    expect(inputReturnDate).toHaveValue('3');
+    expect(inputDepartDate).toHaveValue(convertDate(Date.now()));
+    expect(inputReturnDate).toHaveValue('2023-10-23');
     expect(inputPeople).toHaveValue('2');
     expect(inputTransportation).toHaveValue('train');
     expect(inputName).toHaveValue('Juan');
     expect(buttonSubmit).toBeEnabled()
 
     userEvent.click(buttonSubmit);
-    expect(inputFrom).toHaveValue('');
-    expect(inputDestination).toHaveValue('');
-    expect(inputDepartDate).toHaveValue('1');
-    expect(inputReturnDate).toHaveValue('1');
-    expect(inputPeople).toHaveValue('1');
-    expect(inputTransportation).toHaveValue('airplane');
-    expect(inputName).toHaveValue('');
+    waitFor(() => {
+      expect(inputFrom).toHaveValue('');
+      expect(inputDestination).toHaveValue('');
+      expect(inputDepartDate).toHaveValue('1');
+      expect(inputReturnDate).toHaveValue('1');
+      expect(inputPeople).toHaveValue('1');
+      expect(inputTransportation).toHaveValue('airplane');
+      expect(inputName).toHaveValue('');
+    })
   });
 
   it('should button into create quotes form is disabled', () => {
@@ -126,16 +138,16 @@ describe('test the interactions in inputs into create quotes form', () => {
 
     userEvent.type(inputFrom, 'Buenos Aires');
     userEvent.type(inputDestination, 'Santiago');
-    userEvent.selectOptions(inputDepartDate, '2');
-    userEvent.selectOptions(inputReturnDate, '3');
+    fireEvent.change(inputDepartDate, { target: { value: '2022-10-23' } });
+    fireEvent.change(inputReturnDate, { target: { value: '2023-10-23' } });
     userEvent.selectOptions(inputPeople, '2');
     userEvent.selectOptions(inputTransportation, 'train');
     userEvent.type(inputName, '');
 
     expect(inputFrom).toHaveValue('Buenos Aires');
     expect(inputDestination).toHaveValue('Santiago');
-    expect(inputDepartDate).toHaveValue('2');
-    expect(inputReturnDate).toHaveValue('3');
+    expect(inputDepartDate).toHaveValue('2022-10-23');
+    expect(inputReturnDate).toHaveValue('2023-10-23');
     expect(inputPeople).toHaveValue('2');
     expect(inputTransportation).toHaveValue('train');
     expect(inputName).toHaveValue('');
@@ -144,6 +156,10 @@ describe('test the interactions in inputs into create quotes form', () => {
 });
 
 describe('test the interactions and renders the Pending Quotes Table', () => {
+  beforeAll(() => {
+    createStorage('user', 
+    { name: 'John Doe', email: 'teste.teste@gmail.com', token: '1234567' })
+  });
   it("should renders the Pending quotes table", () => {
     const { getByAltText, getByRole } = renderWithRoute(<App testing={ true } />);
     const iconPendingQuotes = getByAltText('Pending Quotes');
@@ -167,24 +183,25 @@ describe('test the interactions and renders the Pending Quotes Table', () => {
 
 
 describe('test the interactions and renders the Leads List', () => {
+  beforeAll(() => {
+    createStorage('user', 
+    { name: 'John Doe', email: 'teste.teste@gmail.com', token: '1234567' })
+  });
   it('should renders the Leads List', () => {
-    const { getByRole, getByAltText, getAllByRole } = renderWithRoute(<App testing={ true } />)
+    const { getByRole, getByAltText } = renderWithRoute(<App testing={ true } />)
     const titleListLeads = getByRole('heading', { level: 4, name: 'New Leads' });
-    const containerEachLead = getAllByRole('container');
-    const hourLead = getAllByRole('section')[0].childNodes[2];
     const iconListLeads = getByAltText("New Leads");
-    const nameLead = containerEachLead[0].childNodes[0];
-    const statusLead = containerEachLead[0].childNodes[1];
 
     expect(titleListLeads).toBeInTheDocument();
     expect(iconListLeads).toHaveAttribute('src', "IconLeads.svg");
-    expect(nameLead).toHaveTextContent('Jane Smith');
-    expect(statusLead).toHaveTextContent('Hey! I want to place my package');
-    expect(hourLead).toHaveTextContent('13:40 PM');
   });
 });
 
 describe('test the interactions and renders the Chat', () => {
+  beforeAll(() => {
+    createStorage('user', 
+    { name: 'John Doe', email: 'teste.teste@gmail.com', token: '1234567' })
+  });
   it('should renders the Chat', () => {
     const { getByRole, getByAltText } = renderWithRoute(<App testing={ true } />);
     const titleChat = getByRole('heading', { name: "Team chat" });
